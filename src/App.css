@@ -11,17 +11,28 @@
   transform: translateZ(0);
 }
 
-/* ── Every section below landing must sit ABOVE the fixed character (z-index 11) ──
-   Also needs solid background so character doesn't bleed through                  */
-.about-section,
+/* ── About: above character but no background (character shows through) ── */
+.about-section {
+  position: relative;
+  z-index: 20;
+}
+
+/* ── Career and below: z-index 999 with solid bg — always covers fixed character ──
+   position:relative alone won't cover position:fixed elements.
+   We use a pseudo-element that acts as a full-width background cover.           */
 .career-section,
 .work-section,
 .skills-section,
 .contact-section {
   position: relative;
-  z-index: 20 !important;
+  z-index: 999;
   background-color: var(--backgroundColor);
-  isolation: isolate; /* creates new stacking context */
+}
+
+/* Extra safety: ensure smooth-content sits above character */
+#smooth-content {
+  position: relative;
+  z-index: 10;
 }
 
 @media only screen and (max-width: 1600px) {
