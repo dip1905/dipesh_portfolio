@@ -1,0 +1,150 @@
+.header {
+  display: flex;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+  margin-bottom: -100px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 9999;
+}
+
+/* ── Left side: logo + email + resume ── */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-title {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.navbar-left-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-email {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  color: rgba(234, 229, 236, 0.6);
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.navbar-email:hover {
+  color: var(--accentColor);
+}
+
+.navbar-email svg {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ── Resume button ── */
+.navbar-resume {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  padding: 6px 14px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-resume:hover {
+  background-color: rgba(94, 234, 212, 0.1);
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.navbar-resume svg {
+  font-size: 15px;
+}
+
+/* ── Right side: nav links ── */
+.header ul {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-gap: 30px;
+  align-items: center;
+}
+
+.header ul li {
+  letter-spacing: 1px;
+  color: #ccc;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── Responsive ── */
+@media only screen and (min-width: 500px) {
+  .header {
+    padding: 20px 0px;
+  }
+  .header ul {
+    font-size: 13px;
+  }
+  .header ul li {
+    color: #eae5ec;
+  }
+  .navbar-title {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-email {
+    display: flex;
+  }
+  .navbar-resume {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 35px 0px;
+  }
+  .header ul {
+    column-gap: 50px;
+    font-size: 14px;
+  }
+  .navbar-email {
+    font-size: 14px;
+  }
+  .navbar-title {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .header ul {
+    column-gap: 60px;
+    font-size: 15px;
+  }
+}

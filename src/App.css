@@ -1,0 +1,45 @@
+.section-container {
+  width: 1300px;
+}
+
+.title,
+.para {
+  font-kerning: none;
+  -webkit-text-rendering: optimizeSpeed;
+  text-rendering: optimizeSpeed;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* ── Every section below landing must sit ABOVE the fixed character (z-index 11) ──
+   Also needs solid background so character doesn't bleed through                  */
+.about-section,
+.career-section,
+.work-section,
+.skills-section,
+.contact-section {
+  position: relative;
+  z-index: 20 !important;
+  background-color: var(--backgroundColor);
+  isolation: isolate; /* creates new stacking context */
+}
+
+@media only screen and (max-width: 1600px) {
+  .section-container {
+    width: 1200px;
+    max-width: calc(100% - 160px);
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .section-container {
+    width: 900px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .section-container {
+    width: 500px;
+    max-width: var(--cWidth);
+  }
+}
