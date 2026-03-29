@@ -1,10 +1,16 @@
 import "./styles/Work.css";
 import { MdArrowOutward } from "react-icons/md";
 import { FaGithub } from "react-icons/fa6";
+import WorkImage from "./WorkImage";
 
 const projects = [
   {
     title: "Product Inventory Manager",
+    images: [
+      "/images/inventory/inventory1.png",
+      "/images/inventory/inventory2.png",
+      "/images/inventory/inventory3.png",
+    ],
     category: "Full Stack – Java",
     tools: ["Java", "Spring Boot", "React.js", "MySQL"],
     description:
@@ -15,6 +21,13 @@ const projects = [
   },
   {
     title: "Desk – Team Productivity Platform",
+    images: [
+      "/images/desk/desk1.png",
+      "/images/desk/desk2.png",
+      "/images/desk/desk3.png",
+      "/images/desk/desk4.png",
+      "/images/desk/desk5.png"
+    ],
     category: "Full Stack – MERN",
     tools: ["React.js", "Node.js", "Express", "PostgreSQL", "Prisma"],
     description:
@@ -25,6 +38,11 @@ const projects = [
   },
   {
     title: "Job Application Tracker",
+    images: [
+      "/images/job/job.png",
+      "/images/job/job1.png",
+      "/images/job/job2.png",
+    ],
     category: "Full Stack – Java",
     tools: ["Java", "Spring Boot", "MySQL", "React.js"],
     description:
@@ -35,6 +53,12 @@ const projects = [
   },
   {
     title: "ClinicIQ – Hospital Appointment System",
+    images: [
+      "/images/clinic/clinic1.png",
+      "/images/clinic/clinic3.png",
+      "/images/clinic/clinic4.png",
+      "/images/clinic/clinic5.png",
+    ],
     category: "Full Stack – MERN",
     tools: ["React.js", "Node.js", "Express.js", "MongoDB"],
     description:
@@ -87,15 +111,25 @@ const Work = () => {
                     TO ADD IMAGE later — replace the div below with:
                     <img src={project.image} alt={project.title} className="work-item__img" />
                   */}
-                  <div className="work-item__placeholder">
-                    <div className="work-placeholder__glow" />
-                    <span className="work-placeholder__number">0{index + 1}</span>
-                    <h3 className="work-placeholder__title">{project.title}</h3>
-                  </div>
+                  {project.images ? (
+                    <WorkImage
+                      images={project.images}
+                      alt={project.title}
+                      link={project.link}
+                      title={project.title}
+                    />
+                  ) : (
+                    <div className="work-item__placeholder">
+                      <div className="work-placeholder__glow" />
+                      <span className="work-placeholder__number">0{index + 1}</span>
+                      <h3 className="work-placeholder__title">{project.title}</h3>
+                    </div>
+                  )}
                 </div>
 
                 {/* ── INFO SIDE: Description + Stack + Links ── */}
                 <div className="work-item__info">
+                  <h3 className="work-item__title">{project.title}</h3>
                   <p className="work-item__desc">{project.description}</p>
 
                   <div className="work-item__tags">
